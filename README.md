@@ -19,32 +19,28 @@ I will explain “How to do” and “What to do” below.
   
 2.What functions does this Mod have?  
   
-	(1) Enter the Money Base Multiplier value(Value1<=1).(it will directly affect the Salary positively(non-linear))  
+	[1] Enter the Money Base Multiplier value(Value1<=1).(it will directly affect the Salary positively(non-linear))  
   After the culculation is over and before the data been output, Value1 will multiplied by the MoneyBase.  
   newMoneyBase = maxMoneyBase x Value1
   (The income money/experience (get)=[(MoneyBase+lv*MoneyLevel)*(1+FinishBonus/2)]/10)
   
-	(2) Enter a cutoff value(Value2 >= 0.1) to make the maxMoneyBase lower. Before the culculation been start the maxMoneyBase will minus this margin value which will make the MoneyBase stay inside the legal value.   
+	[2] Enter a cutoff value(Value2 >= 0.1) to make the maxMoneyBase lower. Before the culculation been start the maxMoneyBase will minus this margin value which will make the MoneyBase stay inside the legal value.   
   newMoneyBase = ( maxMoneyBase - Value2 ) x Value1   
   
-	(3)Whether you want to modify the Food which is OP/overload/overpower/too low.(Only when Original Food Price > 0) !  
-		Enter 【No】 to modify the OP Food.  
-  
-	(4) Whether you want to add a Random Number into BottomPrice & Whether you want to modify while Original FoodPrice < 0.  
+	[3]Setup the minimum Working Level. Making all the works which is below the "newLevelLimit" will increase the Working Level requirement, Salary and etcs.  
+
+	[4]Whether you want to modify the work which is OP/overload/overpower.(Only when Income to Cost Ratio(Rel) <= 1.4)!   
+	Enter 【No】 to modify the OP Food.  
+	[5] Whether you want to add a Random Money Base Multiplier value(Value3) & Whether you want to modify the working level(LevelLimit) which is greater than LV.555.  
 		Enter【11】 to add both functions. (All option: 【00】, 【01】,【11】,【10】).  
 	Random Number is create by rolling two twenty sided dice (2D20). Rolling consequence as below:  
    
-Roll2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 55   
-3 ~ 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 35   
-5 ~ 9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 6   
-10 ~ 15&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 1.4   
-16 ~ 26&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 1   
-27 ~ 32&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 0.9   
-33 ~ 36&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 0.7   
-37 ~ 39&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 0.3   
-Roll40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> BottomPrice x 0.1  
+Roll2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> MoneyBase x 0.78   
+3 ~ 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> MoneyBase x 0.92   
+5 ~ 9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> MoneyBase x 0.95   
+10 ~ 15&nbsp;&nbsp;&nbsp;&nbsp;-> MoneyBase x 0.97   
+16 ~ 40&nbsp;&nbsp;&nbsp;&nbsp;-> MoneyBase x 1   
   
-Food Price =   
-(OfficailPrice-10) x PriceMultiplier +  DiceMultify x BottomPrice  
+  newMoneyBase = (( maxMoneyBase - Value2 ) x Value3 ) x Value1
   
   
