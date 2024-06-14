@@ -482,8 +482,10 @@ namespace FoodFileModifier
                         ////////////////////////////////////////////////Compile Start///////////////////////////////////////////////////////
                         //1.情況一:Work Salary too low
                         if (((originalType == 1 || originalType == 2) || (originalFeeling < 0 && originalType == 3) )
-                            && originalFinishBonus <= 2 && originalMoneyBase < ((SalaryLimit - SafeMargins) * SalaryMinRatio) 
-                            && ((RelWorg >= 0 && RelWorg <= 1.4) || ModOpItmes) && (!(IgHiLevel) || originalLevelLimit <= 555))
+                            && originalFinishBonus <= 2 
+                            && (originalMoneyBase < ((SalaryLimit - SafeMargins) * SalaryMinRatio) || newLevelLimit > originalLevelLimit)
+                            && ((RelWorg >= 0 && RelWorg <= 1.4) || ModOpItmes) 
+                            && (!(IgHiLevel) || originalLevelLimit <= 555))
                         {
                             //New MoneyBase
                             newMoneyBase = (SalaryLimit - SafeMargins)* MoneyDiceMult;
