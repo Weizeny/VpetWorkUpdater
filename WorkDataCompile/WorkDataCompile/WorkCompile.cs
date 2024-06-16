@@ -482,7 +482,7 @@ namespace FoodFileModifier
                         ////////////////////////////////////////////////Compile Start///////////////////////////////////////////////////////
                         //1.情況一:Work Salary too low
                         if (((originalType == 1 || originalType == 2) || (originalFeeling < 0 && originalType == 3) )
-                            && originalFinishBonus <= 2 
+                            && (originalFinishBonus <= 2 || ModOpItmes)
                             && (originalMoneyBase < ((SalaryLimit - SafeMargins) * SalaryMinRatio) || newLevelLimit > originalLevelLimit)
                             && ((RelWorg >= 0 && RelWorg <= 1.4) || ModOpItmes) 
                             && (!(IgHiLevel) || originalLevelLimit <= 555))
@@ -492,11 +492,11 @@ namespace FoodFileModifier
                             double RelWNew;
                             RelWNew = RelWork(GetWorkGain(originalType, newMoneyBase, originalFinishBonus), 
                                 SpendWork(originalStrengthFood, originalStrengthDrink, originalFeeling, newLevelLimit));
-                            double counterlimit = 6;
-                            if (newLevelLimit <= 10) { counterlimit = 7; }
-                            else if (newLevelLimit <= 50) { counterlimit = 13; }
-                            else if (newLevelLimit <= 99) { counterlimit = 25; }
-                            else if (newLevelLimit <= 199) { counterlimit = 41; }
+                            double counterlimit = 12;
+                            if (newLevelLimit <= 10) { counterlimit = 17; }
+                            else if (newLevelLimit <= 50) { counterlimit = 30; }
+                            else if (newLevelLimit <= 99) { counterlimit = 58; }
+                            else if (newLevelLimit <= 199) { counterlimit = 95; }
                             double newMoneyBaseT = newMoneyBase;
                             //1-1 Feeling increase x1.5, StrengthDrink >0 change, <=0 remain; StrengthFood >0 change, <=0 remain. 
                             //for MoneyBase x Ratio
